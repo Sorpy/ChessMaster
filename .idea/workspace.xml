@@ -2,35 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="811ae1e5-99f4-4d0d-94af-c7ce8082faee" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Application.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/com/chessmaster/pieces/Bishop.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/com/chessmaster/pieces/King.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/com/chessmaster/pieces/Knight.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/com/chessmaster/pieces/Pawn.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/com/chessmaster/pieces/Piece.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/com/chessmaster/pieces/Queen.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/com/chessmaster/pieces/Rook.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/com/chessmaster/test/BishopTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/com/chessmaster/test/BishopTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/com/chessmaster/test/KingTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/com/chessmaster/test/KingTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/com/chessmaster/test/KnightTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/com/chessmaster/test/KnightTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/com/chessmaster/test/PawnTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/com/chessmaster/test/PawnTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/com/chessmaster/test/QueenTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/com/chessmaster/test/QueenTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/com/chessmaster/test/RookTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/com/chessmaster/test/RookTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Application.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Application.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/chessmaster/pieces/Bishop.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/chessmaster/pieces/Bishop.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/chessmaster/pieces/King.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/chessmaster/pieces/King.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/chessmaster/pieces/Knight.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/chessmaster/pieces/Knight.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/chessmaster/pieces/Pawn.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/chessmaster/pieces/Pawn.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/chessmaster/pieces/Piece.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/chessmaster/pieces/Queen.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/chessmaster/pieces/Queen.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/chessmaster/pieces/Rook.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/chessmaster/pieces/Rook.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/chessmaster/test/BishopTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/chessmaster/test/BishopTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/chessmaster/test/KingTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/chessmaster/test/KingTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/chessmaster/test/KnightTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/chessmaster/test/KnightTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/chessmaster/test/PawnTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/chessmaster/test/PawnTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/chessmaster/test/QueenTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/chessmaster/test/QueenTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/chessmaster/test/RookTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/chessmaster/test/RookTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/chessmaster/manager/GameRunner.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/chessmaster/manager/GameRunner.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/classes/" />
     <ignored path="$PROJECT_DIR$/bin/" />
@@ -75,8 +47,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/chessmaster/pieces/common/Piece.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="270">
-              <caret line="54" column="65" lean-forward="true" selection-start-line="54" selection-start-column="24" selection-end-line="54" selection-end-column="65" />
+            <state relative-caret-position="306">
+              <caret line="56" column="97" lean-forward="true" selection-start-line="56" selection-start-column="24" selection-end-line="56" selection-end-column="97" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#169#170#0" expanded="true" />
@@ -120,8 +92,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/chessmaster/manager/GameRunner.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="643">
-              <caret line="234" column="1" selection-start-line="234" selection-start-column="1" selection-end-line="234" selection-end-column="1" />
+            <state relative-caret-position="432">
+              <caret line="150" column="28" selection-start-line="150" selection-start-column="28" selection-end-line="150" selection-end-column="28" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -150,8 +122,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/chessmaster/pieces/Chud.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="414">
-              <caret line="32" column="9" selection-start-line="32" selection-start-column="9" selection-end-line="32" selection-end-column="9" />
+            <state relative-caret-position="378">
+              <caret line="36" column="51" selection-start-line="36" selection-start-column="51" selection-end-line="36" selection-end-column="51" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -199,11 +171,11 @@
         <option value="$PROJECT_DIR$/src/com/chessmaster/pieces/Rook.java" />
         <option value="$PROJECT_DIR$/src/com/chessmaster/pieces/common/CanShoot.java" />
         <option value="$PROJECT_DIR$/src/GameRunner.java" />
-        <option value="$PROJECT_DIR$/src/com/chessmaster/pieces/common/Piece.java" />
         <option value="$PROJECT_DIR$/src/com/chessmaster/pieces/Pawn.java" />
-        <option value="$PROJECT_DIR$/src/com/chessmaster/manager/GameRunner.java" />
         <option value="$PROJECT_DIR$/src/com/chessmaster/pieces/common/Blastable.java" />
+        <option value="$PROJECT_DIR$/src/com/chessmaster/pieces/common/Piece.java" />
         <option value="$PROJECT_DIR$/src/com/chessmaster/pieces/Chud.java" />
+        <option value="$PROJECT_DIR$/src/com/chessmaster/manager/GameRunner.java" />
       </list>
     </option>
   </component>
@@ -332,7 +304,7 @@
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.12633263" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.12633263" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -341,7 +313,7 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32936078" />
-      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.32936078" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.32936078" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.3997833" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -374,7 +346,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/src/com/chessmaster/manager/GameRunner.java</url>
-          <line>88</line>
+          <line>91</line>
           <properties class="com.chessmaster.manager.GameRunner" method="chooseColor">
             <option name="EMULATED" value="true" />
           </properties>
@@ -382,7 +354,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/com/chessmaster/manager/GameRunner.java</url>
-          <line>177</line>
+          <line>189</line>
           <properties />
           <option name="timeStamp" value="9" />
         </line-breakpoint>
@@ -527,10 +499,17 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/chessmaster/pieces/common/Blastable.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="72">
+          <caret line="4" column="8" selection-start-line="4" selection-start-column="8" selection-end-line="4" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/chessmaster/pieces/common/Piece.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="54" column="65" lean-forward="true" selection-start-line="54" selection-start-column="24" selection-end-line="54" selection-end-column="65" />
+        <state relative-caret-position="306">
+          <caret line="56" column="97" lean-forward="true" selection-start-line="56" selection-start-column="24" selection-end-line="56" selection-end-column="97" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#169#170#0" expanded="true" />
@@ -549,17 +528,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/chessmaster/pieces/common/Blastable.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="72">
-          <caret line="4" column="8" selection-start-line="4" selection-start-column="8" selection-end-line="4" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/chessmaster/pieces/Chud.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="414">
-          <caret line="32" column="9" selection-start-line="32" selection-start-column="9" selection-end-line="32" selection-end-column="9" />
+        <state relative-caret-position="378">
+          <caret line="36" column="51" selection-start-line="36" selection-start-column="51" selection-end-line="36" selection-end-column="51" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -568,8 +540,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/chessmaster/manager/GameRunner.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="643">
-          <caret line="234" column="1" selection-start-line="234" selection-start-column="1" selection-end-line="234" selection-end-column="1" />
+        <state relative-caret-position="432">
+          <caret line="150" column="28" selection-start-line="150" selection-start-column="28" selection-end-line="150" selection-end-column="28" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

@@ -40,7 +40,8 @@ public class GameRunner {
 
             System.out.println("1. Create a new piece\n" +
                     "2. Move an exiting piece\n" +
-                    "3. Exit");
+                    "3. Exit\n" +
+                    "4. List all pieces");
             try {
                 chooser = scanner.nextInt();
             } catch (InputMismatchException e) {
@@ -54,6 +55,8 @@ public class GameRunner {
                 case 2:
                     chooseCoordinates();
                     break;
+                case 4:
+                    pieceList.forEach(piece -> System.out.println(piece.toString()));
             }
 
         } while (chooser != 3);
@@ -130,16 +133,25 @@ public class GameRunner {
                 System.out.println("Please enter coordinates as in the example");
             }
 
-            if (row >= 0 && row <= 9 && col >= 0 && col <= 9) {
+            if (row >= 0 && row <= 9 && col >= 0 && col <= 9 && checkForPiece(row,col)) {
                 possibleCoordinates = true;
                 createPiece(pieceId, row, col);
             } else if (isCoordinates) {
-                System.out.println("Coordinates of the piece out of boundary");
+                System.out.println("Coordinates of the piece out of boundary or occupied");
             }
 
         } while (!possibleCoordinates);
 
 
+    }
+
+    boolean checkForPiece(int row, int col){
+        for (Piece piece : pieceList) {
+            if (piece.getCol()==col && piece.getRow()==row){
+                return false;
+            }
+        }
+        return true;
     }
 
     private void createPiece(int pieceId, int row, int col) {
