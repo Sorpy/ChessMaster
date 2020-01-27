@@ -1,24 +1,22 @@
 package com.chessmaster.pieces;
-public class Queen implements Piece{
 
-    public String color;
+import com.chessmaster.pieces.common.Piece;
+
+public class Queen extends Piece {
+
     public int power;
     public int id;
 
-    public int row;
-    public int col;
 
     public Queen(String color, int row, int col) {
+        super(color, row, col);
 
-        this.color  = color;
         this.power  = 5;
-        this.id 	= 4;
-
-        this.row = row;
-        this.col = col;
+        this.id 	= 6;
     }
 
-	@Override
+
+    @Override
 	public boolean isMoveActionValid(int moveRow, int moveCol) {
         if (moveCol >9 ||
                 moveCol < 0 ||
@@ -28,24 +26,11 @@ public class Queen implements Piece{
         }
 		return (moveCol == col ^
                 moveRow ==row) ^
-                Math.abs(row - moveRow) ==
-                Math.abs(col - moveCol);
+                (Math.abs(row - moveRow) ==
+                Math.abs(col - moveCol));
 	}
 
-	@Override
-    public void move(int row, int col) {
 
-        if(isMoveActionValid(row, col)) {
-
-            this.row = row;
-            this.col = col;
-        }
-    }
-
-	@Override
-	public void attack() {
-
-	}
 
 	@Override
 	public void render() {

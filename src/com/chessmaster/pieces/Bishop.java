@@ -1,21 +1,18 @@
 package com.chessmaster.pieces;
-public class Bishop  implements Piece{
-	
-	public String color;
+
+import com.chessmaster.pieces.common.Piece;
+
+public class Bishop  extends Piece {
+
 	public int power;
 	public int id;
 
-	public int row;
-	public int col;
 	
 	public Bishop(String color, int row, int col) {
-		
-		this.color  = color;
+		super(color,row,col);
+
 		this.power  = 5;
 		this.id 	= 2;
-
-		this.row = row;
-		this.col = col;
 	}
 
 	@Override
@@ -28,21 +25,6 @@ public class Bishop  implements Piece{
 			}
 		return (Math.abs(row - moveRow) ==
 				Math.abs(col - moveCol));
-	}
-
-	@Override
-	public void move(int row, int col) {
-
-		if(isMoveActionValid(row,col)){
-
-			this.row = row;
-			this.col = col;
-		}
-	}
-
-	@Override
-	public void attack() {
-
 	}
 
 	@Override

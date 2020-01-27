@@ -2,6 +2,7 @@ package com.chessmaster.test;
 
 import com.chessmaster.pieces.*;
 import com.chessmaster.config.*;
+import com.chessmaster.pieces.common.Piece;
 
 public class PawnTest {
 
