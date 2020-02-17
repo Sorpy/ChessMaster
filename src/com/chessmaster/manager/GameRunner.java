@@ -231,10 +231,10 @@ public class GameRunner {
                     System.out.println("Please enter numbers");
                 }
                 if (piece instanceof Blastable) {
-                    System.out.println("Do you want to shoot (y/n)");
+                    System.out.println("Do you want to blast (y/n)");
                     String shootOption = scanner.nextLine();
                     if (shootOption.toLowerCase().equals("y")) {
-                        ((Blastable) piece).shoot(row, col);
+                        ((Blastable) piece).blast(row, col);
                         pieceDidAction = true;
                     }
                 }else {

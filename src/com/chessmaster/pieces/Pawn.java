@@ -1,5 +1,6 @@
 package com.chessmaster.pieces;
 
+import com.chessmaster.config.PieceColor;
 import com.chessmaster.manager.GameRunner;
 import com.chessmaster.pieces.common.Piece;
 
@@ -7,11 +8,8 @@ public class Pawn extends Piece {
 
 	boolean isFirstMove;
 
-	public int power;
-	public int id;
-
 	public Pawn(String color, int row, int col, boolean isFirstMove) {
-		super(color, row, col);
+		super(color,"P", row, col);
 
 		this.power  = 1;
 		this.id 	= 1;
@@ -48,7 +46,12 @@ public class Pawn extends Piece {
 	}
 
 	@Override
-	public void render() {
-		
+	public String render() {
+		String path;
+		if (this.color.equals(PieceColor.WHITE)){
+			path = "resources/WhitePawn.png";
+		}
+		else path = "resources/BlackPawn.png";
+		return path;
 	}
 }

@@ -1,14 +1,28 @@
 package com.chessmaster.pieces.common;
 
+import com.chessmaster.config.PieceColor;
 import com.chessmaster.manager.GameRunner;
 
 import java.util.Iterator;
 
 public abstract class Piece {
 
-    private String color;
+    protected String color;
+    protected int power;
+    protected int id;
+
     public int row;
     public int col;
+
+    protected String signature;
+
+    public Piece(String color,String signature, int row, int col) {
+
+        this.color = color;
+        this.row = row;
+        this.col = col;
+        this.signature = signature;
+    }
 
     public String getColor() {
         return color;
@@ -19,29 +33,36 @@ public abstract class Piece {
     }
 
     public int getRow() {
-        return row;
+        return this.row;
     }
 
-    public void setRow(int row) {
-        this.row = row;
+    public void setRow(int row)  {
+        if(row >= 0 && row <= 9) {
+            this.row = row;
+        }
     }
 
     public int getCol() {
-        return col;
+        return this.col;
     }
 
     public void setCol(int col) {
-        this.col = col;
+
+        if(col >= 0 && col <= 9) {
+            this.col = col;
+        }
+    }
+
+    public String getSignature() {
+
+        return (this.color.equals(PieceColor.WHITE))
+                ? ("w" + this.signature)
+                : ("b" + this.signature);
     }
 
 
 
-    public Piece(String color, int row, int col) {
 
-        this.color = color;
-        this.row = row;
-        this.col = col;
-    }
     public abstract boolean isMoveActionValid(int moveRow, int moveCol);
 
     public boolean move(int moveRow, int moveCol) {
@@ -73,7 +94,8 @@ public abstract class Piece {
         return false;
     }
 
-    public abstract void render();
+
+    public abstract String render();
 
     @Override
     public String toString() {

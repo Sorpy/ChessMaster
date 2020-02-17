@@ -1,5 +1,6 @@
 package com.chessmaster.pieces;
 
+import com.chessmaster.config.PieceColor;
 import com.chessmaster.pieces.common.Piece;
 
 public class Queen extends Piece {
@@ -9,7 +10,7 @@ public class Queen extends Piece {
 
 
     public Queen(String color, int row, int col) {
-        super(color, row, col);
+        super(color,"Q", row, col);
 
         this.power  = 5;
         this.id 	= 6;
@@ -32,8 +33,13 @@ public class Queen extends Piece {
 
 
 
-	@Override
-	public void render() {
-
-	}
+    @Override
+    public String render() {
+        String path;
+        if (this.color.equals(PieceColor.WHITE)){
+            path = "resources/WhiteQueen.png";
+        }
+        else path = "resources/BlackQueen.png";
+        return path;
+    }
 }

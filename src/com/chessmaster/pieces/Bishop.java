@@ -1,5 +1,6 @@
 package com.chessmaster.pieces;
 
+import com.chessmaster.config.PieceColor;
 import com.chessmaster.pieces.common.Piece;
 
 public class Bishop  extends Piece {
@@ -9,7 +10,7 @@ public class Bishop  extends Piece {
 
 	
 	public Bishop(String color, int row, int col) {
-		super(color,row,col);
+		super(color,"B",row,col);
 
 		this.power  = 5;
 		this.id 	= 2;
@@ -28,7 +29,12 @@ public class Bishop  extends Piece {
 	}
 
 	@Override
-	public void render() {
-
+	public String render() {
+		String path;
+		if (this.color.equals(PieceColor.WHITE)){
+			path = "resources/WhiteBishop.png";
+		}
+		else path = "resources/BlackBishop.png";
+		return path;
 	}
 }

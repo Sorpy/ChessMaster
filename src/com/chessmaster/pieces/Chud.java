@@ -12,14 +12,14 @@ public class Chud extends Piece implements Blastable {
     public int id;
 
     public Chud(String color, int row, int col) {
-        super(color, row, col);
+        super(color,"CD", row, col);
 
         this.power  = 15;
         this.id 	= 7;
     }
 
     @Override
-    public void shoot(int attackRow, int attackCol) {
+    public void blast(int attackRow, int attackCol) {
         boolean didShoot =false;
         if (isAttackActionValid(attackRow, attackCol)) {
             for (Iterator<Piece> iterator = GameRunner.pieceList.iterator(); iterator.hasNext(); ) {
@@ -34,7 +34,7 @@ public class Chud extends Piece implements Blastable {
             }
         }
         if (!didShoot){
-            System.out.println("No enemies to shoot");
+            System.out.println("No enemies to blast");
         }
     }
 
@@ -55,7 +55,7 @@ public class Chud extends Piece implements Blastable {
 
 
     @Override
-    public void render() {
-
+    public String render() {
+return null;
     }
 }

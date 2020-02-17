@@ -1,5 +1,6 @@
 package com.chessmaster.pieces;
 
+import com.chessmaster.config.PieceColor;
 import com.chessmaster.pieces.common.Piece;
 
 public class Knight extends Piece {
@@ -8,7 +9,7 @@ public class Knight extends Piece {
 	public int id;
 
 	public Knight(String color, int row, int col) {
-		super(color, row, col);
+		super(color,"Kn", row, col);
 
 		this.power  = 5;
 		this.id 	= 3;
@@ -32,7 +33,12 @@ public class Knight extends Piece {
 
 
 	@Override
-	public void render() {
-
+	public String render() {
+		String path;
+		if (this.color.equals(PieceColor.WHITE)){
+			path = "resources/WhiteHorse.png";
+		}
+		else path = "resources/BlackHorse.png";
+		return path;
 	}
 }

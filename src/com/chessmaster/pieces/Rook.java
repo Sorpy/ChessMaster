@@ -1,5 +1,6 @@
 package com.chessmaster.pieces;
 
+import com.chessmaster.config.PieceColor;
 import com.chessmaster.pieces.common.Piece;
 
 public class Rook extends Piece {
@@ -9,7 +10,7 @@ public class Rook extends Piece {
 
 
 	public Rook(String color, int row, int col) {
-		super(color, row, col);
+		super(color,"R", row, col);
 
 		this.power  = 5;
 		this.id 	= 4;
@@ -28,7 +29,12 @@ public class Rook extends Piece {
 	}
 
 	@Override
-	public void render() {
-
+	public String render() {
+		String path;
+		if (this.color.equals(PieceColor.WHITE)){
+			path = "resources/WhiteRook.png";
+		}
+		else path = "resources/BlackRook.png";
+		return path;
 	}
 }
