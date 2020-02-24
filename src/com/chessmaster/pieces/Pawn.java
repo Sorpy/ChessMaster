@@ -1,6 +1,7 @@
 package com.chessmaster.pieces;
 
 import com.chessmaster.config.PieceColor;
+import com.chessmaster.manager.GameBoard;
 import com.chessmaster.manager.GameRunner;
 import com.chessmaster.pieces.common.Piece;
 
@@ -26,32 +27,44 @@ public class Pawn extends Piece {
 				moveRow < 0 ){
 			return false;
 		}
-		for (Piece piece : GameRunner.pieceList) {
-			if (!piece.getColor().equals(getColor())){
-				if ((piece.getRow() == moveRow) && (piece.getCol()==moveCol)){
-					return true;
-				}
+		if (getColor().equals("#000000")) {
+			if ((moveRow-row == 1) && (moveCol == col)) {
+				return true;
+			}if (isFirstMove && (moveRow-row == 2) && (moveCol == col)) {
+				return true;
 			}
 		}
-
-		if ((moveRow - row == 1) && (moveCol == col)) {
-			isFirstMove =false;
-			return true;
-		}
-		else if (isFirstMove && (moveRow - row == 2) && (moveCol == col)){
-			isFirstMove=false;
-			return true;
+		else {
+			if ((row - moveRow == 1) && (moveCol == col)) {
+				return true;
+			}if (isFirstMove && (row - moveRow == 2) && (moveCol == col)) {
+				return true;
+			}
 		}
 		return false;
+	}
+
+	@Override
+	public void move(int moveRow, int moveCol) {
+		if (isMoveActionValid(moveRow, moveCol)) {
+			GameBoard.board[row][col] = GameBoard.board[this.row][this.col];
+			GameBoard.board[this.row][this.col]= null;
+
+			this.row = moveRow;
+			this.col = moveCol;
+			GameBoard.movePiece(this);
+			isFirstMove = false;
+		}
+
 	}
 
 	@Override
 	public String render() {
 		String path;
 		if (this.color.equals(PieceColor.WHITE)){
-			path = "resources/WhitePawn.png";
+			path = ".\\src\\resources\\WhitePawn.png";
 		}
-		else path = "resources/BlackPawn.png";
+		else path = ".\\src\\resources\\BlackPawn.png";
 		return path;
 	}
 }

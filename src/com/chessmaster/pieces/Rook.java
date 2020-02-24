@@ -1,6 +1,7 @@
 package com.chessmaster.pieces;
 
 import com.chessmaster.config.PieceColor;
+import com.chessmaster.manager.GameBoard;
 import com.chessmaster.pieces.common.Piece;
 
 public class Rook extends Piece {
@@ -25,6 +26,44 @@ public class Rook extends Piece {
 				moveRow < 0 ){
 			return false;
 		}
+		if ((moveCol == col ^ moveRow ==row)){
+			if (row >moveRow){
+				int checkRow = row-1;
+				while(checkRow>=moveRow){
+					if (GameBoard.board[checkRow][moveCol]!=null)
+						return false;
+					checkRow--;
+				}
+			}
+			if (row <moveRow){
+				int checkRow = row+1;
+				while(checkRow<=moveRow){
+					if (GameBoard.board[checkRow][moveCol]!=null)
+						return false;
+					checkRow++;
+				}
+			}
+			if (col <moveCol){
+				int checkCol = col+1;
+				while(checkCol<=moveCol){
+					if (checkCol>0) {
+						if (GameBoard.board[moveRow][checkCol] != null)
+							return false;
+						checkCol++;
+					}
+				}
+			}
+			if (col >moveCol){
+				int checkCol = col-1;
+				while(checkCol>=moveCol) {
+					if (checkCol > 0) {
+						if (GameBoard.board[moveRow][checkCol] != null)
+							return false;
+						checkCol++;
+					}
+				}
+			}
+		}
 		return (moveCol == col ^ moveRow ==row);
 	}
 
@@ -32,9 +71,9 @@ public class Rook extends Piece {
 	public String render() {
 		String path;
 		if (this.color.equals(PieceColor.WHITE)){
-			path = "resources/WhiteRook.png";
+			path = ".\\src\\resources\\WhiteRook.png";
 		}
-		else path = "resources/BlackRook.png";
+		else path = ".\\src\\resources\\BlackRook.png";
 		return path;
 	}
 }

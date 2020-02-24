@@ -36,9 +36,9 @@ public class Knight extends Piece {
 	public String render() {
 		String path;
 		if (this.color.equals(PieceColor.WHITE)){
-			path = "resources/WhiteHorse.png";
+			path = ".\\src\\resources\\WhiteKnight.png";
 		}
-		else path = "resources/BlackHorse.png";
+		else path = ".\\src\\resources\\BlackKnight.png";
 		return path;
 	}
 }

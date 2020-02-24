@@ -1,6 +1,7 @@
 package com.chessmaster.pieces.common;
 
 import com.chessmaster.config.PieceColor;
+import com.chessmaster.manager.GameBoard;
 import com.chessmaster.manager.GameRunner;
 
 import java.util.Iterator;
@@ -65,33 +66,40 @@ public abstract class Piece {
 
     public abstract boolean isMoveActionValid(int moveRow, int moveCol);
 
-    public boolean move(int moveRow, int moveCol) {
+    public void move(int moveRow, int moveCol) {
 
         if (isMoveActionValid(moveRow, moveCol)) {
 
-            for (Iterator<Piece> iterator = GameRunner.pieceList.iterator(); iterator.hasNext();){
-                Piece piece = iterator.next();
-                if (piece.getRow() == moveRow &&
-                        piece.getCol() == moveCol) {
-                    if (!piece.getColor().equals(this.getColor())) {
-                        iterator.remove();
-                        System.out.printf("%s piece destroyed",piece.getClass().getSimpleName());
-                        this.row = moveRow;
-                        this.col = moveCol;
-                        return true;
-                    } else if (piece.getColor().equals(this.getColor())){
-                        System.out.println("Space occupied by a friendly piece");
-                        return false;
-                    }
-                    else {
-                        this.row = moveRow;
-                        this.col = moveCol;
-                        return true;
-                    }
-                }
-            }
+            GameBoard.board[row][col] = GameBoard.board[this.row][this.col];
+            GameBoard.board[this.row][this.col]= null;
+
+            this.row = moveRow;
+            this.col = moveCol;
+            GameBoard.movePiece(this);
+
+
+//            for (Iterator<Piece> iterator = GameRunner.pieceList.iterator(); iterator.hasNext();){
+//                Piece piece = iterator.next();
+//                if (piece.getRow() == moveRow &&
+//                        piece.getCol() == moveCol) {
+//                    if (!piece.getColor().equals(this.getColor())) {
+//                        iterator.remove();
+//                        System.out.printf("%s piece destroyed",piece.getClass().getSimpleName());
+//                        this.row = moveRow;
+//                        this.col = moveCol;
+//                        return true;
+//                    } else if (piece.getColor().equals(this.getColor())){
+//                        System.out.println("Space occupied by a friendly piece");
+//                        return false;
+//                    }
+//                    else {
+//                        this.row = moveRow;
+//                        this.col = moveCol;
+//                        return true;
+//                    }
+//                }
+//            }
         }
-        return false;
     }
 
 

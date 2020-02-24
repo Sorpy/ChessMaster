@@ -12,9 +12,8 @@ public class Application {
 		JFrame windowFrame = new JFrame();
 		windowFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		windowFrame.setSize(600, 600);
-		windowFrame.add(new ApplicationWindow());
+		windowFrame.add(new GameBoard());
 		windowFrame.setVisible(true);
-		windowFrame.setLayout(new GridBagLayout());
 
 		Scanner input = new Scanner(System.in);
 
@@ -30,28 +29,28 @@ public class Application {
 		while(true) {
 
 
-			System.out.print("Select row : ");
-			selectRow = input.nextInt();
-
-			System.out.print("Select col : ");
-			selectCol = input.nextInt();
-
-			if(GameBoard.isPieceSelectable(selectRow, selectCol)) {
-				GameBoard.selectPiece(selectRow, selectCol);
-
-				System.out.println("Piece : " + GameBoard.activePiece.getSignature() + " is selected");
-
-				System.out.print("Move row : ");
-				moveRow = input.nextInt();
-
-				System.out.print("Move col : ");
-				moveCol = input.nextInt();
-
-				if(GameBoard.isPieceMoveValid(moveRow, moveCol)) {
-					GameBoard.movePiece(moveRow, moveCol);
-				}
-
-			}
+//			System.out.print("Select row : ");
+//			selectRow = input.nextInt();
+//
+//			System.out.print("Select col : ");
+//			selectCol = input.nextInt();
+//
+//			if(GameBoard.isPieceSelectable(selectRow, selectCol)) {
+//				GameBoard.selectPiece(selectRow, selectCol);
+//
+//				System.out.println("Piece : " + GameBoard.activePiece.getSignature() + " is selected");
+//
+//				System.out.print("Move row : ");
+//				moveRow = input.nextInt();
+//
+//				System.out.print("Move col : ");
+//				moveCol = input.nextInt();
+//
+//				if(GameBoard.isPieceMoveValid(moveRow, moveCol)) {
+//					GameBoard.movePiece(moveRow, moveCol);
+//				}
+//
+//			}
 
 		}
 	}
