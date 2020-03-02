@@ -29,7 +29,7 @@ public class Rook extends Piece {
 		if ((moveCol == col ^ moveRow ==row)){
 			if (row >moveRow){
 				int checkRow = row-1;
-				while(checkRow>=moveRow){
+				while(checkRow!=moveRow){
 					if (GameBoard.board[checkRow][moveCol]!=null)
 						return false;
 					checkRow--;
@@ -37,7 +37,7 @@ public class Rook extends Piece {
 			}
 			if (row <moveRow){
 				int checkRow = row+1;
-				while(checkRow<=moveRow){
+				while(checkRow!=moveRow){
 					if (GameBoard.board[checkRow][moveCol]!=null)
 						return false;
 					checkRow++;
@@ -45,7 +45,7 @@ public class Rook extends Piece {
 			}
 			if (col <moveCol){
 				int checkCol = col+1;
-				while(checkCol<=moveCol){
+				while(checkCol!=moveCol){
 					if (checkCol>0) {
 						if (GameBoard.board[moveRow][checkCol] != null)
 							return false;
@@ -55,13 +55,17 @@ public class Rook extends Piece {
 			}
 			if (col >moveCol){
 				int checkCol = col-1;
-				while(checkCol>=moveCol) {
+				while(checkCol!=moveCol) {
 					if (checkCol > 0) {
 						if (GameBoard.board[moveRow][checkCol] != null)
 							return false;
 						checkCol++;
 					}
 				}
+			}
+			if (GameBoard.board[moveRow][moveCol] != null) {
+				return !GameBoard.board[moveRow][moveCol].getColor().equals(this.getColor());
+
 			}
 		}
 		return (moveCol == col ^ moveRow ==row);

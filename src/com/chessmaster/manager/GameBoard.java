@@ -10,7 +10,6 @@ import java.awt.event.MouseEvent;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
-import java.util.ArrayList;
 
 public class GameBoard extends JPanel{
 
@@ -19,7 +18,7 @@ public class GameBoard extends JPanel{
 	boolean firstTileSelected = false;
 
 
-	boolean kurec = false;
+	boolean pieceSelected = false;
 
 	private int selectedRow = -1;
 	private int selectedCol = -1;
@@ -27,9 +26,12 @@ public class GameBoard extends JPanel{
 	private int secondSelectRow = -1;
 	private int secondSelectCol = -1;
 
+	private int whitePlayerPoints = 0;
+	private int blackPlayerPoints = 0;
+
 
 	private int clickCounter = 0;
-	public static String playerTurn = "#000000";
+	public static String playerTurn = PieceColor.WHITE;
 
 	public static Piece board[][] = new Piece[10][10];
 	public static final int MAX_BOARD_SIZE = 10;
@@ -142,7 +144,7 @@ public class GameBoard extends JPanel{
 				render(g, row, col);
 			}
 		}
-		if (kurec) {
+		if (pieceSelected) {
 			for (int row = 0; row < 10; row++) {
 				for (int col = 0; col < 10; col++) {
 					if (isPieceSelectable(selectedRow, selectedCol))
@@ -150,6 +152,19 @@ public class GameBoard extends JPanel{
 				}
 			}
 		}
+		g.setColor(new Color(31, 224, 255));
+		g.fillRect(0,500,500,100);
+		g.setColor(Color.BLACK);
+		g.setFont(new Font("TimesRoman", Font.PLAIN, 20));
+		g.drawString("Current Player",25,550);
+		g.drawString("Black Points - " + blackPlayerPoints,250,540);
+		g.drawString("White Points - " + whitePlayerPoints,250,570 );
+
+		g.setColor(Color.GRAY);
+		g.fillRect(160,515,70,70);
+
+		g.setColor(Color.decode(playerTurn));
+		g.fillRect(165,520,60,60);
 
 	}
 
@@ -176,7 +191,7 @@ public class GameBoard extends JPanel{
 
 		if(isSelected && isPieceSelectable(row,col)&& !firstTileSelected) {
 			g.setColor(tileColor);
-			kurec =true;
+			pieceSelected =true;
 
 
 			tileColor = new Color(255,0,0,50);
@@ -189,7 +204,11 @@ public class GameBoard extends JPanel{
 		if(isSecondSelected && firstTileSelected) {
 			g.setColor(tileColor);
 			if(firstTileSelected) {
-				board[selectedRow][selectedCol].move(secondSelectRow,secondSelectCol);
+				if(board[selectedRow][selectedCol].move(secondSelectRow,secondSelectCol)){
+					if (playerTurn.equals(PieceColor.WHITE)){
+						blackPlayerPoints+=10;
+					} else whitePlayerPoints+=10;
+				}
 
 				firstTileSelected = false;
 			}
@@ -214,15 +233,25 @@ public class GameBoard extends JPanel{
 		}
 	}
 
-	private void showPossibleMoves(Graphics g, int pieceRow, int pieceCol, int row, int col){
-		if(board[pieceRow][pieceCol].isMoveActionValid(row,col) && board[row][col]==null){
-			int tileX = col * TILE_SIDE;
-			int tileY = row * TILE_SIDE;
+	private void showPossibleMoves(Graphics g, int pieceRow, int pieceCol, int row, int col) {
+		if (board[pieceRow][pieceCol].isMoveActionValid(row, col)) {
+			if (board[row][col] == null) {
+				int tileX = col * TILE_SIDE;
+				int tileY = row * TILE_SIDE;
 
-			Color tileColor;
-			tileColor = new Color(255,0,0,25);
-			g.setColor(tileColor);
-			g.fillRect(tileX, tileY, TILE_SIDE, TILE_SIDE);
+				Color tileColor;
+				tileColor = new Color(255, 0, 0, 25);
+				g.setColor(tileColor);
+				g.fillRect(tileX, tileY, TILE_SIDE, TILE_SIDE);
+			} else {
+				int tileX = col * TILE_SIDE;
+				int tileY = row * TILE_SIDE;
+
+				Color tileColor;
+				tileColor = new Color(37, 255, 41, 65);
+				g.setColor(tileColor);
+				g.fillRect(tileX, tileY, TILE_SIDE, TILE_SIDE);
+			}
 		}
 	}
 }

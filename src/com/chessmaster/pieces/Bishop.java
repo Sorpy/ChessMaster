@@ -54,6 +54,10 @@ public class Bishop  extends Piece {
 					checkCol +=colOffset;
 					checkRow +=rowOffset;
 				}
+				if (GameBoard.board[moveRow][moveCol] != null) {
+					return !GameBoard.board[moveRow][moveCol].getColor().equals(this.getColor());
+
+				}
 
 			}
 

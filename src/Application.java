@@ -11,7 +11,7 @@ public class Application {
 
 		JFrame windowFrame = new JFrame();
 		windowFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		windowFrame.setSize(600, 600);
+		windowFrame.setSize(600, 650);
 		windowFrame.add(new GameBoard());
 		windowFrame.setVisible(true);
 

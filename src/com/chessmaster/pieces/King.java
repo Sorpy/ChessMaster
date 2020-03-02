@@ -1,6 +1,7 @@
 package com.chessmaster.pieces;
 
 import com.chessmaster.config.PieceColor;
+import com.chessmaster.manager.GameBoard;
 import com.chessmaster.pieces.common.Piece;
 
 public class King extends Piece {
@@ -23,6 +24,16 @@ public class King extends Piece {
 				moveRow > 9 ||
 				moveRow < 0 ){
 			return false;
+		}
+		if (moveCol == col && moveRow == row){
+			return false;
+		}
+		if ((Math.abs(row - moveRow) <=1 &&
+				Math.abs(col-moveCol)<=1)){
+			if (GameBoard.board[moveRow][moveCol] != null) {
+				return !GameBoard.board[moveRow][moveCol].getColor().equals(this.getColor());
+
+			}
 		}
 
 		return (Math.abs(row - moveRow) <=1 &&

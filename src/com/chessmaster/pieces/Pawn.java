@@ -28,24 +28,51 @@ public class Pawn extends Piece {
 			return false;
 		}
 		if (getColor().equals("#000000")) {
+
 			if ((moveRow-row == 1) && (moveCol == col)) {
-				return true;
-			}if (isFirstMove && (moveRow-row == 2) && (moveCol == col)) {
+				if (GameBoard.board[moveRow][moveCol] != null) {
+					return false;
+
+				}
 				return true;
 			}
+			if (GameBoard.board[row+1][col+1]!=null){
+				if (!GameBoard.board[row+1][col+1].getColor().equals(this.getColor())) {
+					return true;
+				}
+			}
+			if (GameBoard.board[row+1][col-1]!=null){
+				if (!GameBoard.board[row+1][col-1].getColor().equals(this.getColor())) {
+					return true;
+				}
+			}
+			return isFirstMove && (moveRow - row == 2) && (moveCol == col);
 		}
 		else {
 			if ((row - moveRow == 1) && (moveCol == col)) {
-				return true;
-			}if (isFirstMove && (row - moveRow == 2) && (moveCol == col)) {
+				if (GameBoard.board[moveRow][moveCol] != null) {
+					return false;
+
+				}
 				return true;
 			}
+			if (GameBoard.board[row-1][col+1]!=null){
+				if (!GameBoard.board[row-1][col+1].getColor().equals(this.getColor())) {
+					return true;
+				}
+			}
+			if (GameBoard.board[row-1][col-1]!=null){
+				if (!GameBoard.board[row-1][col-1].getColor().equals(this.getColor())) {
+					return true;
+				}
+			}
+
+			return isFirstMove && (row - moveRow == 2) && (moveCol == col);
 		}
-		return false;
 	}
 
 	@Override
-	public void move(int moveRow, int moveCol) {
+	public boolean move(int moveRow, int moveCol) {
 		if (isMoveActionValid(moveRow, moveCol)) {
 			GameBoard.board[row][col] = GameBoard.board[this.row][this.col];
 			GameBoard.board[this.row][this.col]= null;
@@ -54,7 +81,9 @@ public class Pawn extends Piece {
 			this.col = moveCol;
 			GameBoard.movePiece(this);
 			isFirstMove = false;
+			return true;
 		}
+		return false;
 
 	}
 
