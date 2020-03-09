@@ -6,6 +6,8 @@ import com.chessmaster.pieces.common.Piece;
 import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.image.BufferedImage;
 import java.io.File;
@@ -15,10 +17,10 @@ public class GameBoard extends JPanel{
 
 	private final int TILE_SIDE = 50;
 
-	boolean firstTileSelected = false;
+	private boolean firstTileSelected = false;
 
 
-	boolean pieceSelected = false;
+	private boolean pieceSelected = false;
 
 	private int selectedRow = -1;
 	private int selectedCol = -1;
@@ -26,8 +28,12 @@ public class GameBoard extends JPanel{
 	private int secondSelectRow = -1;
 	private int secondSelectCol = -1;
 
-	private int whitePlayerPoints = 0;
-	private int blackPlayerPoints = 0;
+	private static int turnNumber=0;
+	private static int maxTurnNumber = 0;
+
+	protected static int whitePlayerPoints = 0;
+	protected static int blackPlayerPoints = 0;
+	private static CustomList<GameData> gameDataCustomList = new CustomList<>();
 
 
 	private int clickCounter = 0;
@@ -42,6 +48,9 @@ public class GameBoard extends JPanel{
 	public static final int INIT_BOARD_BLACK_EXTRA_PIECE_POSITION = 1;
 
 	public static Piece activePiece;
+
+	private Button redoButton=new Button("Redo");
+	private Button undoButton=new Button("Undo");
 
 	public GameBoard() {
 		addMouseListener(new MouseEventListener() {
@@ -75,6 +84,32 @@ public class GameBoard extends JPanel{
 				updateUI();
 			}
 		});
+		add(redoButton);
+		redoButton.addActionListener(e -> {
+			if (turnNumber<maxTurnNumber){
+				turnNumber++;
+				setGameState(turnNumber);
+			}
+		});
+		add(undoButton);
+		undoButton.addActionListener((new ActionListener(){
+			public void actionPerformed(ActionEvent e){
+				if (turnNumber>1){
+					turnNumber--;
+					setGameState(turnNumber);
+
+				}
+			}
+		}));
+	}
+
+	private void setGameState(int turnNumber) {
+		GameData gameData = gameDataCustomList.get(turnNumber);
+		whitePlayerPoints = gameData.getWhitePlayerPoints();
+		blackPlayerPoints = gameData.getBlackPlayerPoints();
+		playerTurn=gameData.getPlayerTurn();
+		board = gameData.getBoard();
+		repaint();
 	}
 
 	public static void init() {
@@ -135,9 +170,16 @@ public class GameBoard extends JPanel{
 		board[row][col] = piece;
 
 		playerTurn = playerTurn.equals(PieceColor.WHITE) ? "#000000" : "#ffffff";
+
+		gameDataCustomList.add(new GameData(turnNumber));
+		turnNumber++;
+		maxTurnNumber++;
 	}
 
 	public void paint(Graphics g) {
+
+		undoButton.setLocation(530,100);
+		redoButton.setLocation(530,200);
 
 		for(int row = 0; row < 10; row++) {
 			for(int col = 0; col < 10; col++) {
@@ -165,6 +207,8 @@ public class GameBoard extends JPanel{
 
 		g.setColor(Color.decode(playerTurn));
 		g.fillRect(165,520,60,60);
+
+
 
 	}
 
@@ -253,5 +297,13 @@ public class GameBoard extends JPanel{
 				g.fillRect(tileX, tileY, TILE_SIDE, TILE_SIDE);
 			}
 		}
+	}
+
+	public int getWhitePlayerPoints() {
+		return whitePlayerPoints;
+	}
+
+	public void setWhitePlayerPoints(int whitePlayerPoints) {
+		this.whitePlayerPoints = whitePlayerPoints;
 	}
 }
